@@ -1,0 +1,176 @@
+/** FeedHenry Theme **/
+
+/** Pink Theme **/
+
+/*@base-color: #F50555;
+@btn-border-color: #EB0753;
+@btn-hover-color: #DF1132;
+@base-font-color: #FFF;
+@content-font-color: #000;
+@content-header-font-color: #000;*/
+
+#page_view_container {
+  background-color: #ffffff;
+}
+
+#main_page .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.banner {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  background-color: #7ea0b5;
+  border: none;
+  border-radius: 0;
+}
+
+.banner h1 {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.banner p {
+  margin-bottom: 0;
+}
+
+.start-menu-item {
+  width: 100%;
+  height: 125px;
+  cursor: pointer;
+}
+
+.start-menu-item h5 {
+  color: #e02d01;
+}
+
+.start-menu-item h6 {
+  color: #535353;
+}
+
+a.start-menu-item-icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  padding-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #7ea0b5;
+  border-color: #7ea0b5;
+  border-radius: 50%;
+}
+
+.start-menu-item-icon:active {
+  color: #ffffff;
+  background-color: #5e7787;
+}
+
+.start-menu-item h5 {
+  text-transform: uppercase;
+}
+
+.start-menu-item h5,
+h6 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.page_view {
+  background-color: #ffffff;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: #7ea0b5;
+  border: none;
+}
+
+.navbar-default .navbar-text {
+  width: 100%;
+  color: #ffffff;
+}
+
+.navbar .btn.back {
+  width: 75px;
+  height: 50px;
+  padding-top: 10px;
+  color: #ffffff;
+}
+
+.navbar-title {
+  display: block;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.content_view {
+  padding: 15px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.content_view h1 {
+  color: #e02d01;
+}
+
+.content_view p {
+  color: #535353;
+}
+
+.content_view .btn {
+  display: block;
+}
+
+.btn-primary {
+  background-color: #7ea0b5;
+  border-color: #7ea0b5;
+}
+
+.btn-primary:hover {
+  background-color: #5e7787;
+}
+
+.weather-info p {
+  margin-bottom: 0;
+}
+
+.weather-info img {
+  margin-bottom: 5px;
+}
+
+.cloud_integration .plugins {
+  height: 110px;
+}
+
+/* Override Effeckt Animation speed */
+
+[data-effeckt-page].slide-from-left {
+  -webkit-animation: slideFromLeft 10ms forwards ease-in-out;
+       -o-animation: slideFromLeft 10ms forwards ease-in-out;
+          animation: slideFromLeft 10ms forwards ease-in-out;
+}
+
+[data-effeckt-page].slide-to-left {
+  -webkit-animation: slideToLeft 10ms forwards ease-in-out;
+       -o-animation: slideToLeft 10ms forwards ease-in-out;
+          animation: slideToLeft 10ms forwards ease-in-out;
+}
+
+[data-effeckt-page].slide-from-right {
+  -webkit-animation: slideFromRight 10ms forwards ease-in-out;
+       -o-animation: slideFromRight 10ms forwards ease-in-out;
+          animation: slideFromRight 10ms forwards ease-in-out;
+}
+
+[data-effeckt-page].slide-to-right {
+  -webkit-animation: slideToRight 10ms forwards ease-in-out;
+       -o-animation: slideToRight 10ms forwards ease-in-out;
+          animation: slideToRight 10ms forwards ease-in-out;
+}
