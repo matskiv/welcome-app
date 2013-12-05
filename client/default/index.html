@@ -31,28 +31,178 @@
         <!--
         <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
         -->
-
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="css/mobile.css">
+        <link rel="stylesheet" href="css/effeckt.css">
+        
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
 
-        <script src="scripts/vendor.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/effeckt.js"></script>
+        <script src="libs/jquery/jquery.js"></script>
+        <script src="libs/underscore/underscore.js"></script>
+        <script src="libs/handlebars/handlebars.js"></script>
+        <script src="libs/backbone/backbone.js"></script>
+        <script src="libs/bootstrap/js/bootstrap.js"></script>
 
-        <script src="scripts/app.js"></script>
+        <script src="scripts/namespace.js"></script>
+        <script src="scripts/routers/index.js"></script>
+        <script src="scripts/models/page.js"></script>
+        <script src="scripts/views/navbar.view.js"></script>
+        <script src="scripts/views/intro.view.js"></script>
+        <script src="scripts/views/viewbase.view.js"></script>
+        <script src="scripts/views/main.view.js"></script>
+        <script src="scripts/views/cloudcall.view.js"></script>
+        <script src="scripts/views/stats.view.js"></script>
+        <script src="scripts/views/nodepage.view.js"></script>
+        <script src="scripts/views/databrowser.view.js"></script>
+        <script src="scripts/views/weather.view.js"></script>
+        <script src="scripts/views/integration.view.js"></script>
+        <script src="scripts/init.js"></script>
+
+         <script id="cloudcall" type="text/x-handlebars-template">
+            <div class="content_view">
+              <div class="container">
+                <h1>{{header}}</h1>
+                <p>{{text}}</p>
+                <p><a class="btn btn-primary btn-lg cloud-action-button"><i class="icon-external-link-sign"></i> {{buttonText}}</a></p>
+                <p class="response_content alert"></p>
+                <p class="extra_response hidden">
+                  {{extraRes}}
+                </p>
+              </div>
+            </div>
+        </script>
+
+        <script id="databrowser" type="text/x-handlebars-template">
+            <div class="content_view">
+              <div class="container">
+                <h1>{{header}}</h1>
+                <p>{{text}}</p>
+                <form>
+                  <div class="form-group">
+                    <label class="sr-only" for="nameField">{{inputFieldLabel}}</label>
+                    <input type="text" class="form-control" id="nameField" placeholder="{{inputFieldLabel}}">
+                  </div>
+                </form>
+                <p class="alert alert-danger hidden"></p>
+                <p><a class="btn btn-primary btn-lg save-data"><i class="icon-save"></i> {{buttonText}}</a></p>
+                <p class="response_content alert"></p>
+                <p class="extra_response hidden">
+                  {{extraRes}}
+                </p>
+              </div>
+            </div>
+        </script>
+        <script id="integration" type="text/x-handlebars-template">
+            <div class="content_view">
+              <div class="container cloud_integration">
+                <h1>{{header}}</h1>
+                <p>{{text}}</p>
+                <div class="row">
+                {{#each plugins}}
+                  <div class="col-xs-4 col-sm-3 col-md-2 plugins">
+                    <img src="img/plugins/{{this.img}}" class="img-responsive" />
+                  </div>
+                {{/each}}
+                </div>
+              </div>
+            </div>
+        </script>
+        <script id="intro" type="text/x-handlebars-template">
+           <div class="banner well center text-center">
+             <h1>{{header}}</h1>
+             <p>{{text}}</p>
+           </div>
+           <div class="row">
+              {{#each menuItems}}
+                <div class="col-xs-6 col-sm-4 {{responsiveClass}}">
+                <div class="container start-menu-item {{className}}">
+                  <a class="btn start-menu-item-icon">
+                    <i class="icon-{{iconClass}} icon-2x"></i>
+                  </a>
+                  <h5>{{menuTitle}}</h5>
+                  <h6>{{menuSubTitle}}</h6>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+        </script>
+        <script id="navbar" type="text/x-handlebars-template">
+            <nav class="navbar navbar-default" role="navigation">
+             <div class="nav pull-left">
+               <a class="btn back"><i class="icon-chevron-left icon-2x"></i></a>
+             </div>
+             <div class="navbar-title" {{#if titleWidth}}style="width: {{titleWidth}}px"{{/if}}>
+               <div class="nav navbar-text">{{title}}</div>
+             </div>
+            </nav>
+        </script>
+        <script id="node" type="text/x-handlebars-template">
+        <div class="content_view">
+          <div class="container">
+            <h1>{{header}}</h1>
+            <img src="img/nodejs.png" class="img-responsive"/>
+            <p>{{text}}</p>
+          </div>
+        </div>
+        </script>
+        <script id="stats" type="text/x-handlebars-template">
+        <div class="content_view">
+          <div class="container">
+            <h1>{{header}}</h1>
+            <p>{{text}}</p>
+          </div>
+        </div>
+        </script>
+        <script id="weather-data" type="text/x-handlebars-template">
+          <div class="row weather-info">
+              {{#each data}}
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 {{#visibleClass @index}}{{/visibleClass}}">
+                  <div class="container">
+                    <img src="{{icon}}" class="img-circle" />
+                    <p>{{date}}</p>
+                    <p>{{low}} - {{high}} (&deg;C)</p>
+                    <p>{{desc}}</p>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+        </script>
+        <script id="weather" type="text/x-handlebars-template">
+          <div class="content_view weather_page">
+              <div class="container">
+                <h1>{{header}}</h1>
+                <p>{{geoText}}</p>
+                <p><a class="btn btn-primary btn-lg get-geo-btn"><i class="icon-location-arrow"></i> {{geoButtonText}}</a></p>
+                <form>
+                  <div class="form-group">
+                    <label class="sr-only" for="locationField">{{geoLabelText}}</label>
+                    <input type="text" class="form-control" id="locationField" placeholder="{{geoLabelText}}">
+                  </div>
+                </form>
+                <div class="hidden">
+                  <p class="get-weather-text">
+                    {{getWeatherText}}
+                  </p>
+                  <p><a class="btn btn-primary btn-lg get-weather-btn"><i class="icon-globe"></i> {{getWeatherButtonText}}</a></p>
+                </div>
+                <p class="response_content"></p>
+              </div>
+            </div>
+        </script>
 
         <div id="main_page" class="page effeckt-page-active" data-effeckt-page="main_view_container">
         </div>
 
         <div id="page_view_container" data-effeckt-page="page_view_container">
         </div>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,"script"));
-        </script>
 
     </body>
 </html>
