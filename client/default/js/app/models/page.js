@@ -52,18 +52,18 @@ App.models.databrowserPage = new App.Model.PageModel({
 App.models.weatherPage = new App.Model.PageModel({
   title: 'Location Example',
   header: 'Location Example',
-  geoText: 'Let’s grab your location and do something with it. Tap the button to find your location',
+  geoText: 'Lets grab your location and do something with it. Tap the button to find your location',
   geoButtonText : 'Get My Location',
   geoLabelText: 'My Location',
   getWeatherText: 'Now we are going to use that location to request weather information from an online web-service via our cloud code. Tap the button to do this.',
   getWeatherButtonText: 'Get My Weather Info',
-  titleWidth: '180'
+  titleWidth: '125'
 });
 
 App.models.integrationPage = new App.Model.PageModel({
   title: 'Cloud Integration',
   header: 'Cloud Integration',
-  titleWidth: '150',
+  titleWidth: '120',
   text: 'You can easily integrate with all of your existing back-end systems using Cloud Plugins. Check out the the App Studio to see how to connect to Databases, Messaging, Analytics, SaaS, eCommerce, Logging, Data Storage, File Storage, Testing, Tools and File Storage. A few examples including:',
   plugins:[{img:'mysql.png'},
           {img: 'oracle.png'},

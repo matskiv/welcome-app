@@ -1,0 +1,37 @@
+info it worked if it ends with ok
+info using fhc@0.11.1-330
+info using node@v0.10.11
+silly config file /Users/bmackey/.fhcrc
+silly config file /usr/local/etc/fhcrc
+ERR! Error : 'fhc initlocal <appId>' or 'fhc local <appId>' never called, see the usage for an explanation.
+ERR! Usage: 
+ERR!  fhc local <appID>
+ERR!  This command (or the equivalent 'fhc initlocal <appID>') must be run at least
+ERR!  once to initialize the local service. Note : this call will start the local
+ERR!  client and cloud with the default host(127.0.0.1) and ports(8000/8001)
+ERR!  fhc local <appID>* [options]
+ERR!  where <appID> is the application id (aside from the initial call this parameter is optional)
+ERR!  Valid options including: 
+ERR!    port : the port that serves your client content. Default value is 8000. 
+ERR!    cloudHost : the ip address or hostname used for serving the cloud code. Default value is http://127.0.0.1. Specify the ip address or the host name of the server if you want to test from a mobile device.
+ERR!    cloudPort : the port number used for serving the cloud code. Default value is 8001.
+ERR!    startCloud : should the cloud code started automatically. Default value is true.
+ERR!    debug : turn on debugger for Node Inspector. Default value is false.
+ERR!    debugBrk : pause the script on the first line for the Node Inspector. Default value is false.
+ERR!    redisHost : specify the host name or ip address for the redis server. Default value is 127.0.0.1.
+ERR!    redisPort : specify the port number for the redis server. Default value is 6379.
+ERR!    redisPassword : specify the password for the redis server if authentication is required.
+ERR!    packages: which client folder should be loaded for the client app. The default value is 'default' means it will load from 'client/default' folder, specify a different value if you want to load from another client folder.
+ERR!    localDB : specify if local MongoDB should be used. Default value is true.
+ERR!    decoupled : specify if the client app is decoupled. For decoupled build, there will be no wrappers around the conents in index.html file. Default value is false.
+ERR!    logprefix : indicate whether stdout and stderr messages should be prefixed, Default value is false.
+ERR!    loghighlight : indicate whether stdout and stderr messages should be output in green or red color text respectively. Default value is true.
+ERR!  Examples : 
+ERR!    fhc local port=9000 cloudHost=http://192.168.28.34 cloudPort=9001
+ERR!    fhc local startCloud=false
+ERR!    fhc local packages=app
+ERR!    fhc local debug=true debugBrk=true redisHost=192.168.28.33 redisPort=10001 decoupled=true
+ERR!  For more details, please run
+ERR!    fhc help local
+ERR! 
+verbose exit [ 1, true ]

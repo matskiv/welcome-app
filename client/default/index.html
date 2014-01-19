@@ -117,10 +117,13 @@
         </script>
         <script id="intro" type="text/x-handlebars-template">
            <div class="banner well center text-center">
-             <h1>{{header}}</h1>
-             <p>{{text}}</p>
-           </div>
-           <div class="row">
+            <h1>{{header}}</h1>
+            <div class="fh-icon">
+            <img src="img/logo.png"/ class="bannerLogo">
+            </div>
+            <p>{{text}}</p>
+            </div>
+            <div class="row">
               {{#each menuItems}}
                 <div class="col-xs-6 col-sm-4 {{responsiveClass}}">
                 <div class="container start-menu-item {{className}}">
@@ -136,12 +139,14 @@
         </script>
         <script id="navbar" type="text/x-handlebars-template">
             <nav class="navbar navbar-default" role="navigation">
-             <div class="nav pull-left">
-               <a class="btn back"><i class="icon-chevron-left icon-2x"></i></a>
-             </div>
-             <div class="navbar-title" {{#if titleWidth}}style="width: {{titleWidth}}px"{{/if}}>
-               <div class="nav navbar-text">{{title}}</div>
-             </div>
+              <div class="nav pull-left">
+                <a class="btn back"><i class="icon-chevron-left icon-2x"></i></a>
+              </div>
+              <div class="navbar-title" {{#if titleWidth}}style="width: {{titleWidth}}px"{{/if}}>
+                <div class="nav navbar-text">{{title}}</div>
+              </div>
+              <div class="fh-icon"><img src="img/logo.png"/ class="logo">
+              </div>
             </nav>
         </script>
         <script id="node" type="text/x-handlebars-template">
