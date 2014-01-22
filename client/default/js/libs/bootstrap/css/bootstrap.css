@@ -47,7 +47,8 @@ html {
 
 body {
   margin: 0;
-  overflow: hidden;
+  -ms-overflow-style: none; 
+  -webkit-scrollbar: none;
 }
 
 a {
