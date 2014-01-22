@@ -14,6 +14,10 @@
   background-color: #fafafa;
 }
 
+.body element::-webkit-scrollbar { 
+  width: 0 !important 
+}
+
 #page_view_container {
   overflow: hidden;
   background-color: #fafafa;
