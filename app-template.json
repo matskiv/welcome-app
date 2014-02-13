@@ -1,4 +1,5 @@
 {
+  "id": "welcome_project_client",
   "name": "Welcome Project-client",
   "type": "client_hybrid",
   "repoUrl": "https://github.com/feedhenry-sample-apps/welcome-project-client.git",
