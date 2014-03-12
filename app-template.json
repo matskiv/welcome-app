@@ -3,5 +3,5 @@
   "name": "Welcome Project-client",
   "type": "client_hybrid",
   "repoUrl": "https://github.com/feedhenry-sample-apps/welcome-project-client.git",
-  "repoBranch": "refs/heads/master"
+  "repoBranch": "refs/heads/6066-connection-bugfixing"
 }

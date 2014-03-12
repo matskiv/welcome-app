@@ -1,11 +1,8 @@
-welcome-project-client
-======================
+# Development
 
-The main frameworks & tools used by the client app are:
+If you also wish to run server functionality locally, install and run both Redis and MongoDB on your machine and then run the following from the top level of the project:
 
-* Backbone.js (http://backbonejs.org/)
-* Bootstrap 3 (http://getbootstrap.com/)
-* Jasmine (http://pivotal.github.io/jasmine/)
-
-
-For more details about how to develop and build the client app, please check the README file in the client/ directory.
+    fhc target [your-studio-domain].feedhenry.com
+	fhc login your-studio-username your-studio-password
+	fhc apps
+    fhc local the-id-of-your-app
