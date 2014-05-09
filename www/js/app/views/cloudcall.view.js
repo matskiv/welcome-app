@@ -15,10 +15,15 @@ App.View.CloudcallView = App.View.BaseView.extend({
 
   cloudCall: function(){
     var self = this;
-    $fh.act({act: 'hello', req: {}}, function(res){
-      self.gotData(res);
-    }, function(msg, err){
-      self.dataError(msg, err);
+    $fh.cloud(
+      {
+        path: 'hello',
+      },
+      function(res){
+        self.gotData(res);
+      },
+      function(code, errorprops, params){
+        self.dataError(code, params);
     });
   },
 
