@@ -41,9 +41,9 @@ App.View.WeatherSampleView = App.View.BaseView.extend({
     self.dataReset();
     var lat = this.coords.latitude;
     var lon = this.coords.longitude;
-    $fh.act({
-      act:'getWeather',
-      req: {
+    $fh.cloud({
+      path:'getWeather',
+      data: {
         lat: lat,
         lon: lon
       }

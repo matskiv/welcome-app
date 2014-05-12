@@ -5,9 +5,9 @@ var initialize = function(){
   //FastClick.attach(document.body);
   App.routers.mainRoute = new App.Router.MainRoute();
   Backbone.history.start({pushState: true, root: document.location.pathname});
-  $fh.act({
-    act: 'recordActivity',
-    req: {
+  $fh.cloud({
+    path: 'recordActivity',
+    data: {
       'action': 'Client App Started'
     }
   }, function() {}, function() {});
