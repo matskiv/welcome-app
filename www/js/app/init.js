@@ -1,3 +1,9 @@
+var $fh = require("fh-js-sdk");
+var Handlebars = require("handlebars");
+var Backbone = require('backbone');
+var $ = require("jquery");
+var App = require('./namespace');
+
 /*global App, Backbone, Handlebars, MBP, $fh*/
 var initialize = function(){
   MBP.preventZoom();

@@ -1,3 +1,6 @@
+var Backbone = require('backbone');
+var App = require('../namespace');
+
 /*global App, Backbone*/
 /* Define Backbone Models */
 App.Model.PageModel = Backbone.Model.extend({

@@ -9,3 +9,5 @@ App.views = App.views || {};
 App.models = App.models || {};
 App.collections = App.collections || {};
 App.routers = App.routers || {};
+
+module.exports = App;

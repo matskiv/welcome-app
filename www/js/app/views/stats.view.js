@@ -1,3 +1,4 @@
+var App = require('../namespace');
 /*global App*/
 /* Backbone View */
 App.View.StatsView = App.View.BaseView.extend({
