@@ -1,3 +1,8 @@
+var Backbone = require('backbone');
+var _ = require("underscore");
+var App = require('../namespace');
+var Effeckt = require('../../libs/mbp/effeckt');
+
 /*global App, Backbone, _, Effeckt*/
 /* Backbone View */
 App.View.MainView = Backbone.View.extend({

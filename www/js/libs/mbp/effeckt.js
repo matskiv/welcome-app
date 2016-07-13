@@ -1,3 +1,7 @@
+require('browsernizr/test/touchevents');
+require('browsernizr/lib/prefixed');
+var Modernizr = require('browsernizr');
+
 var Effeckt = {
 
   isTouchDevice: Modernizr.touch,
@@ -25,6 +29,8 @@ var Effeckt = {
     this.transitionAnimationEndEvent = this.animationEndEventName + ' ' + this.transitionEndEventName;
 
   }
-}
+};
 
 Effeckt.init();
+
+module.exports = Effeckt;

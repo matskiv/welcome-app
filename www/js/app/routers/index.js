@@ -1,3 +1,7 @@
+var Backbone = require('backbone');
+var App = require('../namespace');
+var $ = require("jquery");
+
 /*global App, Backbone*/
 /* Define Backbone Routes */
 App.Router.MainRoute = Backbone.Router.extend({

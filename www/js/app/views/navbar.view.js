@@ -1,3 +1,9 @@
+var Backbone = require('backbone');
+var Handlebars = require("handlebars");
+var _ = require("underscore");
+var App = require('../namespace');
+var $ = require("jquery");
+
 /*global App, Backbone, _*/
 /* Backbone View */
 App.View.NavbarView = Backbone.View.extend({
@@ -8,7 +14,7 @@ App.View.NavbarView = Backbone.View.extend({
     this.listenTo(this.model, 'change:title', this.render);
     _.bindAll(this, 'setTitle');
   },
-  
+
   render: function(){
     var source = $("#" + this.templateId).html();
     var template = Handlebars.compile(source);

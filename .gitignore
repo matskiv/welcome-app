@@ -21,5 +21,6 @@ results
 build
 .grunt
 
+www/main.js
 node_modules
 
