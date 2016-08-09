@@ -1,4 +1,3 @@
-var App = require('../namespace');
 /*global App*/
 /* Backbone View */
 App.View.IntegrationView = App.View.BaseView.extend({
