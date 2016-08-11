@@ -1,7 +1,3 @@
-var $fh = require("fh-js-sdk");
-var _ = require("underscore");
-var App = require('../namespace');
-
 /*global App, _, $fh*/
 /* Backbone View */
 App.View.DatabrowserView = App.View.BaseView.extend({

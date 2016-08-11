@@ -1,8 +1,3 @@
-var Backbone = require('backbone');
-var Handlebars = require("handlebars");
-var App = require('../namespace');
-var $ = require("jquery");
-
 /*global App, Backbone*/
 /* Backbone View */
 App.View.IntroView = Backbone.View.extend({

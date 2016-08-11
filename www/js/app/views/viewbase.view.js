@@ -1,12 +1,7 @@
-var Backbone = require('backbone');
-var Handlebars = require("handlebars");
-var App = require('../namespace');
-var $ = require("jquery");
-
 /*global App, Backbone*/
 /* Backbone View */
 App.View.BaseView = Backbone.View.extend({
-
+  
   className: 'page_view',
   render: function(){
     this.navbar = new App.View.NavbarView({title: this.model.get('title'), titleWidth: this.model.get('titleWidth')});
