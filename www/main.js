@@ -1,9 +1,11 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var $fh = require("fh-js-sdk");
-var Handlebars = require("handlebars");
-var Backbone = require('backbone');
-var $ = require("jquery");
-var App = require('./namespace');
+window.$fh = require("fh-js-sdk");
+window._ = require("underscore");
+window.Handlebars = require("handlebars");
+window.Backbone = require('backbone');
+window.$ = require("jquery");
+window.Effeckt = require('../libs/mbp/effeckt');
+window.App = require('./namespace');
 
 /*global App, Backbone, Handlebars, MBP, $fh*/
 var initialize = function(){
@@ -43,88 +45,7 @@ Handlebars.registerHelper('visibleClass', function(index){
 });
 
 
-},{"./namespace":3,"backbone":18,"fh-js-sdk":53,"handlebars":83,"jquery":96}],2:[function(require,module,exports){
-var Backbone = require('backbone');
-var App = require('../namespace');
-
-/*global App, Backbone*/
-/* Define Backbone Models */
-App.Model.PageModel = Backbone.Model.extend({
-
-});
-
-App.models.introPage = new App.Model.PageModel({
-  title: 'Welcome',
-  header: 'Welcome To FeedHenry',
-  text: 'Learn about and interact with our platform',
-  nextButtonText: 'Let\'s Start',
-  menuItems: [{className: 'cloud-action', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Cloud Action', menuSubTitle: 'Try it now', responsiveClass: 'col-md-3 col-lg-2', iconClass: 'cloud'},
-              {className: 'data-browser', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Data Browser', menuSubTitle: 'Use MongoDB', responsiveClass: 'col-md-3 col-lg-2', iconClass: 'table'},
-              {className: 'nodejs-page', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Powered By Nodejs', menuSubTitle: 'Cloud code', responsiveClass: 'col-md-3 col-lg-2', iconClass: 'bolt'},
-              {className: 'cloud-integration', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Cloud Integration', menuSubTitle: 'Use Plugins', responsiveClass: 'col-md-3 col-lg-2', iconClass: 'gears'},
-              {className: 'weather-sample', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Example', menuSubTitle: 'Use Location', responsiveClass: 'col-md-2 col-md-offset-2 col-lg-2 col-lg-offset-0', iconClass: 'sun'},
-              {className: 'stats-analytics', imgPath: '/img/touch/apple-touch-icon.png', menuTitle: 'Stats', menuSubTitle: 'See the data', responsiveClass: 'col-md-2 col-md-offset-4 col-lg-2 col-lg-offset-0', iconClass: 'bar-chart'} ]
-});
-
-App.models.cloudcallPage = new App.Model.PageModel({
-  title: 'Cloud Action',
-  header: 'Cloud Action',
-  text: 'This client App is now connected to its matching Node.js cloud code on FeedHenry. Tap the button to request a response from the cloud.',
-  buttonText: 'Call Cloud',
-  extraRes: 'Now check your stats page in the studio to see that this cloud call happen.'
-});
-
-App.models.statsPage = new App.Model.PageModel({
-  title: 'Stats',
-  header: 'Stats',
-  titleWidth: '50',
-  text: 'In addition to all of our App install/usage Analytics, you can also instrument your cloud code to see exactly how it is performing. Go to the Stats section of the Studio and see if your device has been detected.'
-});
-
-App.models.nodePage = new App.Model.PageModel({
-  title: 'Powered By Nodejs',
-  header: 'Powered By Nodejs',
-  text: 'FeedHenry Apps are made much more powerful by our Node.js cloud code. You have all of the functionality of Node available to you including all of its modules. This means you get powerful responsive business logic doing all the heavy lifting for your application.',
-  titleWidth: '150'
-});
-
-App.models.databrowserPage = new App.Model.PageModel({
-  title: 'Data Browser',
-  header: 'Data Browser',
-  text: 'Enter your name and then tap the button to save your name in our cloud database',
-  moreInfo: 'Now go to the Data Browser section of the App Studio and see if you can find your name stored there.',
-  inputFieldLabel: 'Please Enter Your Name',
-  buttonText: 'Save',
-  extraRes: 'Your data is now saved. Please go to studio and see your data using the Data Browser.'
-});
-
-App.models.weatherPage = new App.Model.PageModel({
-  title: 'Location Example',
-  header: 'Location Example',
-  geoText: 'Let’s grab your location and do something with it. Tap the button to find your location',
-  geoButtonText : 'Get My Location',
-  geoLabelText: 'My Location',
-  getWeatherText: 'Now we are going to use that location to request weather information from an online web-service via our cloud code. Tap the button to do this.',
-  getWeatherButtonText: 'Get My Weather Info',
-  titleWidth: '150'
-});
-
-App.models.integrationPage = new App.Model.PageModel({
-  title: 'Cloud Integration',
-  header: 'Cloud Integration',
-  titleWidth: '121',
-  text: 'You can easily integrate with all of your existing back-end systems using Cloud Plugins. Check out the the App Studio to see how to connect to Databases, Messaging, Analytics, SaaS, eCommerce, Logging, Data Storage, File Storage, Testing, Tools and File Storage. A few examples including:',
-  plugins:[{img:'mysql.png'},
-          {img: 'oracle.png'},
-          {img: 'stripe.png'},
-          {img: 'loggly.png'},
-          {img: 's3.png'},
-          {img: 'mixpanel.png'},
-          {img: 'salesforce.png'},
-          {img: 'sendgrid.png'},
-          {img: 'paypal.png'}]
-});
-},{"../namespace":3,"backbone":18}],3:[function(require,module,exports){
+},{"../libs/mbp/effeckt":3,"./namespace":2,"backbone":6,"fh-js-sdk":41,"handlebars":71,"jquery":84,"underscore":85}],2:[function(require,module,exports){
 //define name spaces
 var App = App || {};
 App.Model = App.Model || {};
@@ -138,425 +59,7 @@ App.collections = App.collections || {};
 App.routers = App.routers || {};
 
 module.exports = App;
-},{}],4:[function(require,module,exports){
-var Backbone = require('backbone');
-var App = require('../namespace');
-var $ = require("jquery");
-
-/*global App, Backbone*/
-/* Define Backbone Routes */
-App.Router.MainRoute = Backbone.Router.extend({
-
-  routes : {
-    '': 'mainPage',
-    'main': 'mainPage'
-  },
-
-  mainPage: function(){
-    var mainView = new App.View.MainView({
-      el: $('body')[0],
-      mainContainer: $('#main_page'),
-      pageContainer: $('#page_view_container')
-    });
-    mainView.render();
-  }
-});
-},{"../namespace":3,"backbone":18,"jquery":96}],5:[function(require,module,exports){
-var $fh = require("fh-js-sdk");
-var _ = require("underscore");
-var App = require('../namespace');
-
-/*global App, _, $fh*/
-/* Backbone View */
-App.View.CloudcallView = App.View.BaseView.extend({
-
-  templateId: 'cloudcall',
-  model: App.models.cloudcallPage,
-
-  events: {
-    'click .cloud-action-button': 'cloudCall'
-  },
-
-  initialize: function(){
-    _.bindAll(this, 'gotData', 'dataError');
-  },
-
-  cloudCall: function(){
-    var self = this;
-    $fh.cloud(
-      {
-        path: 'hello',
-      },
-      function(res){
-        self.gotData(res);
-      },
-      function(code, errorprops, params){
-        self.dataError(code, params);
-    });
-  },
-
-  gotData: function(res){
-    this.$el.find('.hidden').removeClass('hidden');
-    this.$el.find('.response_content').removeClass('alert-error').addClass('alert-success').html('Response: ' + res.text);
-    this.$el.find('.extra_response').removeClass('hidden');
-  }
-
-});
-},{"../namespace":3,"fh-js-sdk":53,"underscore":97}],6:[function(require,module,exports){
-var $fh = require("fh-js-sdk");
-var _ = require("underscore");
-var App = require('../namespace');
-
-/*global App, _, $fh*/
-/* Backbone View */
-App.View.DatabrowserView = App.View.BaseView.extend({
-
-  templateId: 'databrowser',
-  model: App.models.databrowserPage,
-
-  events: {
-    'click .save-data': 'saveData'
-  },
-
-  initialize: function(){
-    _.bindAll(this, 'dataSaved');
-  },
-
-  saveData: function(){
-    var inputField = this.$el.find('#nameField');
-    var username = inputField.val();
-    var self = this;
-    if(!username || username === null || username === ''){
-      this.showError();
-    } else {
-      this.hideError();
-      $fh.cloud({path:'saveData', data: {collection: 'Users', 'document': {username: username}}}, function(res){
-        if(res && res.status === 'ok'){
-          self.dataSaved();
-        } else {
-          self.dataError('Server error');
-        }
-      }, function(err){
-        self.dataError(err);
-      });
-    }
-  },
-
-  showError: function(){
-    this.$el.find('.alert.hidden').removeClass('hidden').text('Please enter a name');
-    return;
-  },
-
-  hideError: function(){
-    this.$el.find('.alert').addClass('hidden').empty();
-  },
-
-  dataSaved: function(){
-    this.$el.find('.response_content').addClass('alert-success').removeClass('alert-danger hidden').text(this.model.toJSON().moreInfo);
-    this.$el.find('.extra_response').removeClass('hidden');
-  }
-});
-},{"../namespace":3,"fh-js-sdk":53,"underscore":97}],7:[function(require,module,exports){
-var App = require('../namespace');
-/*global App*/
-/* Backbone View */
-App.View.IntegrationView = App.View.BaseView.extend({
-
-  templateId: 'integration',
-  model: App.models.integrationPage
-
-});
-},{"../namespace":3}],8:[function(require,module,exports){
-var Backbone = require('backbone');
-var Handlebars = require("handlebars");
-var App = require('../namespace');
-var $ = require("jquery");
-
-/*global App, Backbone*/
-/* Backbone View */
-App.View.IntroView = Backbone.View.extend({
-  templateId: 'intro',
-  model: App.models.introPage,
-
-  render: function(){
-    var source = $("#" + this.templateId).html();
-    var template = Handlebars.compile(source);
-    this.$el.html(template(this.model.toJSON()));
-    return this.$el;
-  }
-});
-},{"../namespace":3,"backbone":18,"handlebars":83,"jquery":96}],9:[function(require,module,exports){
-var Backbone = require('backbone');
-var _ = require("underscore");
-var App = require('../namespace');
-var Effeckt = require('../../libs/mbp/effeckt');
-
-/*global App, Backbone, _, Effeckt*/
-/* Backbone View */
-App.View.MainView = Backbone.View.extend({
-
-  events: function(){
-    var eventName  = 'click';
-    var hash = {};
-    hash[eventName + ' .cloud-action'] = 'cloudActionPage';
-    hash[eventName + ' .data-browser'] = 'dataBrowserPage';
-    hash[eventName + ' .nodejs-page'] = 'nodePage';
-    hash[eventName + ' .cloud-integration'] = 'cloudIntegrationPage';
-    hash[eventName + ' .weather-sample'] = 'weatherPage';
-    hash[eventName + ' .stats-analytics'] = 'analyticsPage';
-    hash[eventName + ' .btn.back'] = 'backToIntro';
-    return hash;
-  },
-
-  initialize: function(options){
-    this.mainViewContainer = options.mainContainer;
-    this.pageViewContainer = options.pageContainer;
-    _.bindAll(this, 'cloudActionPage', 'dataBrowserPage', 'nodePage', 'cloudIntegrationPage', 'weatherPage', 'analyticsPage', 'backToIntro');
-  },
-
-  render: function(){
-    var introView = new App.View.IntroView();
-    this.introView = introView.render();
-    this.mainViewContainer.html(this.introView);
-  },
-
-  cloudActionPage: function(){
-    if(!this.cloudCallView){
-      var cloudCallView = new App.View.CloudcallView();
-      this.cloudCallView = cloudCallView.render();
-    }
-    this.showPage(this.cloudCallView);
-  },
-
-  dataBrowserPage: function(){
-    if(!this.databrowserView){
-      var databrowserView = new App.View.DatabrowserView();
-      this.databrowserView = databrowserView.render();
-    }
-    this.showPage(this.databrowserView);
-  },
-
-  nodePage: function(){
-    if(!this.nodeView){
-      var nodeView = new App.View.NodeView();
-      this.nodeView = nodeView.render();
-    }
-    this.showPage(this.nodeView);
-  },
-
-  cloudIntegrationPage: function(){
-    if(!this.integrationView){
-      var integrationView = new App.View.IntegrationView();
-      this.integrationView = integrationView.render();
-    }
-    this.showPage(this.integrationView);
-  },
-
-  weatherPage: function(){
-    if(!this.weatherView){
-      var weatherView = new App.View.WeatherSampleView();
-      this.weatherView = weatherView.render();
-    }
-    this.showPage(this.weatherView);
-  },
-
-  analyticsPage: function(){
-    if(!this.statsView){
-      var statsView = new App.View.StatsView();
-      this.statsView = statsView.render();
-    }
-    this.showPage(this.statsView);
-  },
-
-  showPage: function(toPage){
-    this.pageViewContainer.html(toPage);
-    this.doTransition(this.mainViewContainer, this.pageViewContainer, 'slide-from-right', 'slide-to-left');
-  },
-
-  backToIntro: function(){
-    this.doTransition(this.pageViewContainer, this.mainViewContainer, 'slide-from-left', 'slide-to-right');
-  },
-
-  doTransition: function(fromPage, toPage, transitionInEffect, transitionOutEffect){
-    toPage.addClass('effeckt-page-animating effeckt-page-active');
-    fromPage.addClass('effeckt-page-active effeckt-page-animating');
-    fromPage.addClass(transitionOutEffect);
-    toPage.addClass(transitionInEffect);
-    var isNextPageEnd = false;
-    var isCurrentPageEnd = false;
-    var resetTransition = function(){
-      fromPage.removeClass('effeckt-page-animating effeckt-page-active ' + transitionOutEffect);
-      toPage.removeClass('effeckt-page-animating ' + transitionInEffect);
-    };
-
-    toPage.on( Effeckt.transitionAnimationEndEvent, function() {
-      toPage.off( Effeckt.transitionAnimationEndEvent );
-      isNextPageEnd = true;
-      if ( isCurrentPageEnd ) {
-        resetTransition();
-      }
-    });
-
-    fromPage.on( Effeckt.transitionAnimationEndEvent, function () {
-      fromPage.off( Effeckt.transitionAnimationEndEvent );
-      isCurrentPageEnd = true;
-      if ( isNextPageEnd ) {
-        resetTransition();
-      }
-    });
-  }
-});
-},{"../../libs/mbp/effeckt":15,"../namespace":3,"backbone":18,"underscore":97}],10:[function(require,module,exports){
-var Backbone = require('backbone');
-var Handlebars = require("handlebars");
-var _ = require("underscore");
-var App = require('../namespace');
-var $ = require("jquery");
-
-/*global App, Backbone, _*/
-/* Backbone View */
-App.View.NavbarView = Backbone.View.extend({
-
-  templateId: 'navbar',
-  initialize: function(opts){
-    this.model = new Backbone.Model({title: opts.title, titleWidth: opts.titleWidth});
-    this.listenTo(this.model, 'change:title', this.render);
-    _.bindAll(this, 'setTitle');
-  },
-
-  render: function(){
-    var source = $("#" + this.templateId).html();
-    var template = Handlebars.compile(source);
-    this.$el = template(this.model.toJSON());
-    return this.$el;
-  },
-
-  setTitle: function(title){
-    this.model.set('title', title);
-  }
-});
-},{"../namespace":3,"backbone":18,"handlebars":83,"jquery":96,"underscore":97}],11:[function(require,module,exports){
-var App = require('../namespace');
-/*global App*/
-/* Backbone View */
-App.View.NodeView = App.View.BaseView.extend({
-
-  templateId: 'node',
-  model: App.models.nodePage
-
-});
-},{"../namespace":3}],12:[function(require,module,exports){
-var App = require('../namespace');
-/*global App*/
-/* Backbone View */
-App.View.StatsView = App.View.BaseView.extend({
-
-  templateId: 'stats',
-  model: App.models.statsPage
-
-});
-},{"../namespace":3}],13:[function(require,module,exports){
-var Backbone = require('backbone');
-var Handlebars = require("handlebars");
-var App = require('../namespace');
-var $ = require("jquery");
-
-/*global App, Backbone*/
-/* Backbone View */
-App.View.BaseView = Backbone.View.extend({
-
-  className: 'page_view',
-  render: function(){
-    this.navbar = new App.View.NavbarView({title: this.model.get('title'), titleWidth: this.model.get('titleWidth')});
-    this.$el.append(this.navbar.render());
-    var template = this.getViewTemplate();
-    this.$el.append(template(this.model.toJSON()));
-    return this.$el;
-  },
-
-  dataError: function(msg){
-    this.$el.find('.response_content').removeClass('alert-success').addClass('alert').addClass('alert-danger').html('Oops, something went wrong (' + msg+ '). Please try again later.');
-  },
-
-  dataReset: function(){
-    this.$el.find('.response_content').removeClass('alert-success').removeClass('alert').removeClass('alert-danger').html('');
-  },
-
-  getViewTemplate : function(){
-    var templateId = this.templateId;
-    var source   = $("#" + templateId).html();
-    var template = Handlebars.compile(source);
-    return template;
-  }
-
-});
-
-},{"../namespace":3,"backbone":18,"handlebars":83,"jquery":96}],14:[function(require,module,exports){
-var $fh = require("fh-js-sdk");
-var _ = require("underscore");
-var App = require('../namespace');
-
-/*global App, _, $fh*/
-/* Backbone View */
-App.View.WeatherSampleView = App.View.BaseView.extend({
-
-  templateId: 'weather',
-  model: App.models.weatherPage,
-
-  events: {
-    'click .get-geo-btn': 'getLocation',
-    'click .get-weather-btn': 'getWeatherData'
-  },
-
-  initialize: function(){
-    _.bindAll(this, 'getLocation', 'gotLocation', 'getWeatherData', 'gotWeatherData');
-  },
-
-  getLocation: function(){
-    var self = this;
-    self.dataReset();
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(function(pos){
-        self.gotLocation(pos);
-      }, function(err){
-        self.dataError('Failed to get location : ' + err.message);
-      }, {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      });
-    }
-  },
-
-  gotLocation: function(pos){
-    this.coords = pos.coords;
-    this.$el.find('#locationField').val('lat = ' + this.coords.latitude + '; lon = ' + this.coords.longitude);
-    this.$el.find('.hidden').removeClass('hidden');
-  },
-
-  getWeatherData: function(){
-    var self = this;
-    self.dataReset();
-    var lat = this.coords.latitude;
-    var lon = this.coords.longitude;
-    $fh.cloud({
-      path:'getWeather',
-      data: {
-        lat: lat,
-        lon: lon
-      }
-    }, function(res){
-      self.gotWeatherData(res);
-    }, function(msg){
-      self.dataError(msg);
-    });
-  },
-
-  gotWeatherData: function(data){
-    this.$el.find('.response_content').removeClass('alert-error').removeClass('alert').html(App.Templates['weather-data'](data));
-  }
-});
-},{"../namespace":3,"fh-js-sdk":53,"underscore":97}],15:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 require('browsernizr/test/touchevents');
 require('browsernizr/lib/prefixed');
 var Modernizr = require('browsernizr');
@@ -593,7 +96,7 @@ var Effeckt = {
 Effeckt.init();
 
 module.exports = Effeckt;
-},{"browsernizr":22,"browsernizr/lib/prefixed":43,"browsernizr/test/touchevents":52}],16:[function(require,module,exports){
+},{"browsernizr":10,"browsernizr/lib/prefixed":31,"browsernizr/test/touchevents":40}],4:[function(require,module,exports){
 /*jslint indent: false */
 /**
  * MBP - Mobile boilerplate helper functions
@@ -1009,7 +512,7 @@ module.exports = Effeckt;
   };
 
 })(document);
-},{}],17:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*jslint indent: false */
 // Avoid `console` errors in browsers that lack a console.
 (function() {
@@ -1035,7 +538,7 @@ module.exports = Effeckt;
 }());
 
 // Place any jQuery/helper plugins in here.
-},{}],18:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.3.3
 
@@ -2959,9 +2462,9 @@ module.exports = Effeckt;
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":96,"underscore":97}],19:[function(require,module,exports){
+},{"jquery":84,"underscore":85}],7:[function(require,module,exports){
 
-},{}],20:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -3189,7 +2692,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":21}],21:[function(require,module,exports){
+},{"_process":9}],9:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3242,7 +2745,7 @@ function drainQueue() {
     if (draining) {
         return;
     }
-    var timeout = cachedSetTimeout.call(null, cleanUpNextTick);
+    var timeout = cachedSetTimeout(cleanUpNextTick);
     draining = true;
 
     var len = queue.length;
@@ -3259,7 +2762,7 @@ function drainQueue() {
     }
     currentQueue = null;
     draining = false;
-    cachedClearTimeout.call(null, timeout);
+    cachedClearTimeout(timeout);
 }
 
 process.nextTick = function (fun) {
@@ -3271,7 +2774,7 @@ process.nextTick = function (fun) {
     }
     queue.push(new Item(fun, args));
     if (queue.length === 1 && !draining) {
-        cachedSetTimeout.call(null, drainQueue, 0);
+        cachedSetTimeout(drainQueue, 0);
     }
 };
 
@@ -3310,7 +2813,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],22:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var Modernizr = require('./lib/Modernizr'),
     ModernizrProto = require('./lib/ModernizrProto'),
     classes = require('./lib/classes'),
@@ -3333,7 +2836,7 @@ for (var i = 0; i < Modernizr._q.length; i++) {
 
 module.exports = Modernizr;
 
-},{"./lib/Modernizr":23,"./lib/ModernizrProto":24,"./lib/classes":26,"./lib/setClasses":45,"./lib/testRunner":49}],23:[function(require,module,exports){
+},{"./lib/Modernizr":11,"./lib/ModernizrProto":12,"./lib/classes":14,"./lib/setClasses":33,"./lib/testRunner":37}],11:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
   // Fake some of Object.create so we can force non test results to be non "own" properties.
   var Modernizr = function() {};
@@ -3346,7 +2849,7 @@ var ModernizrProto = require('./ModernizrProto.js');
   module.exports = Modernizr;
 
 
-},{"./ModernizrProto.js":24}],24:[function(require,module,exports){
+},{"./ModernizrProto.js":12}],12:[function(require,module,exports){
 var tests = require('./tests.js');
   /**
    *
@@ -3398,7 +2901,7 @@ var tests = require('./tests.js');
   module.exports = ModernizrProto;
 
 
-},{"./tests.js":51}],25:[function(require,module,exports){
+},{"./tests.js":39}],13:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var prefixes = require('./cssomPrefixes.js');
   /**
@@ -3469,13 +2972,13 @@ var prefixes = require('./cssomPrefixes.js');
   module.exports = atRule;
 
 
-},{"./ModernizrProto.js":24,"./cssomPrefixes.js":30}],26:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./cssomPrefixes.js":18}],14:[function(require,module,exports){
 
   var classes = [];
   module.exports = classes;
 
 
-},{}],27:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 
 
   /**
@@ -3495,7 +2998,7 @@ var prefixes = require('./cssomPrefixes.js');
   module.exports = contains;
 
 
-},{}],28:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var isSVG = require('./isSVG.js');
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
@@ -3523,7 +3026,7 @@ var isSVG = require('./isSVG.js');
   module.exports = createElement;
 
 
-},{"./isSVG.js":38}],29:[function(require,module,exports){
+},{"./isSVG.js":26}],17:[function(require,module,exports){
 
   /**
    * cssToDOM takes a kebab-case string and converts it to camelCase
@@ -3543,7 +3046,7 @@ var isSVG = require('./isSVG.js');
   module.exports = cssToDOM;
 
 
-},{}],30:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var omPrefixes = require('./omPrefixes.js');
   var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
@@ -3551,7 +3054,7 @@ var omPrefixes = require('./omPrefixes.js');
   module.exports = cssomPrefixes;
 
 
-},{"./ModernizrProto.js":24,"./omPrefixes.js":42}],31:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./omPrefixes.js":30}],19:[function(require,module,exports){
 
   /**
    * docElement is a convenience wrapper to grab the root element of the document
@@ -3564,7 +3067,7 @@ var omPrefixes = require('./omPrefixes.js');
   module.exports = docElement;
 
 
-},{}],32:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var omPrefixes = require('./omPrefixes.js');
   /**
@@ -3590,7 +3093,7 @@ var omPrefixes = require('./omPrefixes.js');
   module.exports = domPrefixes;
 
 
-},{"./ModernizrProto.js":24,"./omPrefixes.js":42}],33:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./omPrefixes.js":30}],21:[function(require,module,exports){
 
   /**
    * domToCSS takes a camelCase string and converts it to kebab-case
@@ -3610,7 +3113,7 @@ var omPrefixes = require('./omPrefixes.js');
   module.exports = domToCSS;
 
 
-},{}],34:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
   /**
    * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
@@ -3631,7 +3134,7 @@ var omPrefixes = require('./omPrefixes.js');
   module.exports = fnBind;
 
 
-},{}],35:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var createElement = require('./createElement.js');
 var isSVG = require('./isSVG.js');
   /**
@@ -3660,7 +3163,7 @@ var isSVG = require('./isSVG.js');
   module.exports = getBody;
 
 
-},{"./createElement.js":28,"./isSVG.js":38}],36:[function(require,module,exports){
+},{"./createElement.js":16,"./isSVG.js":26}],24:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var docElement = require('./docElement.js');
 var createElement = require('./createElement.js');
@@ -3740,7 +3243,7 @@ var getBody = require('./getBody.js');
   module.exports = injectElementWithStyles;
 
 
-},{"./ModernizrProto.js":24,"./createElement.js":28,"./docElement.js":31,"./getBody.js":35}],37:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./createElement.js":16,"./docElement.js":19,"./getBody.js":23}],25:[function(require,module,exports){
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -3758,7 +3261,7 @@ var getBody = require('./getBody.js');
   module.exports = is;
 
 
-},{}],38:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var docElement = require('./docElement.js');
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -3771,7 +3274,7 @@ var docElement = require('./docElement.js');
   module.exports = isSVG;
 
 
-},{"./docElement.js":31}],39:[function(require,module,exports){
+},{"./docElement.js":19}],27:[function(require,module,exports){
 var Modernizr = require('./Modernizr.js');
 var modElem = require('./modElem.js');
   var mStyle = {
@@ -3787,7 +3290,7 @@ var modElem = require('./modElem.js');
   module.exports = mStyle;
 
 
-},{"./Modernizr.js":23,"./modElem.js":40}],40:[function(require,module,exports){
+},{"./Modernizr.js":11,"./modElem.js":28}],28:[function(require,module,exports){
 var Modernizr = require('./Modernizr.js');
 var createElement = require('./createElement.js');
   /**
@@ -3808,7 +3311,7 @@ var createElement = require('./createElement.js');
   module.exports = modElem;
 
 
-},{"./Modernizr.js":23,"./createElement.js":28}],41:[function(require,module,exports){
+},{"./Modernizr.js":11,"./createElement.js":16}],29:[function(require,module,exports){
 var injectElementWithStyles = require('./injectElementWithStyles.js');
 var domToCSS = require('./domToCSS.js');
   /**
@@ -3853,7 +3356,7 @@ var domToCSS = require('./domToCSS.js');
   module.exports = nativeTestProps;
 
 
-},{"./domToCSS.js":33,"./injectElementWithStyles.js":36}],42:[function(require,module,exports){
+},{"./domToCSS.js":21,"./injectElementWithStyles.js":24}],30:[function(require,module,exports){
 
   /**
    * If the browsers follow the spec, then they would expose vendor-specific style as:
@@ -3875,7 +3378,7 @@ var domToCSS = require('./domToCSS.js');
   module.exports = omPrefixes;
 
 
-},{}],43:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var testPropsAll = require('./testPropsAll.js');
 var cssToDOM = require('./cssToDOM.js');
@@ -3965,7 +3468,7 @@ var atRule = require('./atRule.js');
   module.exports = prefixed;
 
 
-},{"./ModernizrProto.js":24,"./atRule.js":25,"./cssToDOM.js":29,"./testPropsAll.js":48}],44:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./atRule.js":13,"./cssToDOM.js":17,"./testPropsAll.js":36}],32:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
   /**
    * List of property values to set for css tests. See ticket #21
@@ -4009,7 +3512,7 @@ var ModernizrProto = require('./ModernizrProto.js');
   module.exports = prefixes;
 
 
-},{"./ModernizrProto.js":24}],45:[function(require,module,exports){
+},{"./ModernizrProto.js":12}],33:[function(require,module,exports){
 var Modernizr = require('./Modernizr.js');
 var docElement = require('./docElement.js');
 var isSVG = require('./isSVG.js');
@@ -4049,7 +3552,7 @@ var isSVG = require('./isSVG.js');
   module.exports = setClasses;
 
 
-},{"./Modernizr.js":23,"./docElement.js":31,"./isSVG.js":38}],46:[function(require,module,exports){
+},{"./Modernizr.js":11,"./docElement.js":19,"./isSVG.js":26}],34:[function(require,module,exports){
 var is = require('./is.js');
 var fnBind = require('./fnBind.js');
   /**
@@ -4091,7 +3594,7 @@ var fnBind = require('./fnBind.js');
   module.exports = testDOMProps;
 
 
-},{"./fnBind.js":34,"./is.js":37}],47:[function(require,module,exports){
+},{"./fnBind.js":22,"./is.js":25}],35:[function(require,module,exports){
 var contains = require('./contains.js');
 var mStyle = require('./mStyle.js');
 var createElement = require('./createElement.js');
@@ -4192,7 +3695,7 @@ var cssToDOM = require('./cssToDOM.js');
   module.exports = testProps;
 
 
-},{"./contains.js":27,"./createElement.js":28,"./cssToDOM.js":29,"./is.js":37,"./mStyle.js":39,"./nativeTestProps.js":41}],48:[function(require,module,exports){
+},{"./contains.js":15,"./createElement.js":16,"./cssToDOM.js":17,"./is.js":25,"./mStyle.js":27,"./nativeTestProps.js":29}],36:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var cssomPrefixes = require('./cssomPrefixes.js');
 var is = require('./is.js');
@@ -4239,7 +3742,7 @@ var testDOMProps = require('./testDOMProps.js');
   module.exports = testPropsAll;
 
 
-},{"./ModernizrProto.js":24,"./cssomPrefixes.js":30,"./domPrefixes.js":32,"./is.js":37,"./testDOMProps.js":46,"./testProps.js":47}],49:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./cssomPrefixes.js":18,"./domPrefixes.js":20,"./is.js":25,"./testDOMProps.js":34,"./testProps.js":35}],37:[function(require,module,exports){
 var tests = require('./tests.js');
 var Modernizr = require('./Modernizr.js');
 var classes = require('./classes.js');
@@ -4316,7 +3819,7 @@ var is = require('./is.js');
   module.exports = testRunner;
 
 
-},{"./Modernizr.js":23,"./classes.js":26,"./is.js":37,"./tests.js":51}],50:[function(require,module,exports){
+},{"./Modernizr.js":11,"./classes.js":14,"./is.js":25,"./tests.js":39}],38:[function(require,module,exports){
 var ModernizrProto = require('./ModernizrProto.js');
 var injectElementWithStyles = require('./injectElementWithStyles.js');
   /**
@@ -4380,13 +3883,13 @@ var injectElementWithStyles = require('./injectElementWithStyles.js');
   module.exports = testStyles;
 
 
-},{"./ModernizrProto.js":24,"./injectElementWithStyles.js":36}],51:[function(require,module,exports){
+},{"./ModernizrProto.js":12,"./injectElementWithStyles.js":24}],39:[function(require,module,exports){
 
   var tests = [];
   module.exports = tests;
 
 
-},{}],52:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /*!
 {
   "name": "Touch Events",
@@ -4442,7 +3945,7 @@ var testStyles = require('./../lib/testStyles.js');
   });
 
 
-},{"./../lib/Modernizr.js":23,"./../lib/prefixes.js":44,"./../lib/testStyles.js":50}],53:[function(require,module,exports){
+},{"./../lib/Modernizr.js":11,"./../lib/prefixes.js":32,"./../lib/testStyles.js":38}],41:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.feedhenry=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 (function (global){
@@ -18014,7 +17517,7 @@ module.exports = {
 (19)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],54:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -18081,7 +17584,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars.runtime":55,"./handlebars/compiler/ast":57,"./handlebars/compiler/base":58,"./handlebars/compiler/compiler":60,"./handlebars/compiler/javascript-compiler":62,"./handlebars/compiler/visitor":65,"./handlebars/no-conflict":79}],55:[function(require,module,exports){
+},{"./handlebars.runtime":43,"./handlebars/compiler/ast":45,"./handlebars/compiler/base":46,"./handlebars/compiler/compiler":48,"./handlebars/compiler/javascript-compiler":50,"./handlebars/compiler/visitor":53,"./handlebars/no-conflict":67}],43:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -18149,7 +17652,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":56,"./handlebars/exception":69,"./handlebars/no-conflict":79,"./handlebars/runtime":80,"./handlebars/safe-string":81,"./handlebars/utils":82}],56:[function(require,module,exports){
+},{"./handlebars/base":44,"./handlebars/exception":57,"./handlebars/no-conflict":67,"./handlebars/runtime":68,"./handlebars/safe-string":69,"./handlebars/utils":70}],44:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -18255,7 +17758,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":67,"./exception":69,"./helpers":70,"./logger":78,"./utils":82}],57:[function(require,module,exports){
+},{"./decorators":55,"./exception":57,"./helpers":58,"./logger":66,"./utils":70}],45:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -18288,7 +17791,7 @@ exports['default'] = AST;
 module.exports = exports['default'];
 
 
-},{}],58:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -18338,7 +17841,7 @@ function parse(input, options) {
 }
 
 
-},{"../utils":82,"./helpers":61,"./parser":63,"./whitespace-control":66}],59:[function(require,module,exports){
+},{"../utils":70,"./helpers":49,"./parser":51,"./whitespace-control":54}],47:[function(require,module,exports){
 /* global define */
 'use strict';
 
@@ -18506,7 +18009,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 
-},{"../utils":82,"source-map":84}],60:[function(require,module,exports){
+},{"../utils":70,"source-map":72}],48:[function(require,module,exports){
 /* eslint-disable new-cap */
 
 'use strict';
@@ -19080,7 +18583,7 @@ function transformLiteralToPath(sexpr) {
 }
 
 
-},{"../exception":69,"../utils":82,"./ast":57}],61:[function(require,module,exports){
+},{"../exception":57,"../utils":70,"./ast":45}],49:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -19312,7 +18815,7 @@ function preparePartialBlock(open, program, close, locInfo) {
 }
 
 
-},{"../exception":69}],62:[function(require,module,exports){
+},{"../exception":57}],50:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -20440,7 +19943,7 @@ exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
 
 
-},{"../base":56,"../exception":69,"../utils":82,"./code-gen":59}],63:[function(require,module,exports){
+},{"../base":44,"../exception":57,"../utils":70,"./code-gen":47}],51:[function(require,module,exports){
 /* istanbul ignore next */
 /* Jison generated parser */
 "use strict";
@@ -21180,7 +20683,7 @@ var handlebars = (function () {
 exports['default'] = handlebars;
 
 
-},{}],64:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /* eslint-disable new-cap */
 'use strict';
 
@@ -21368,7 +20871,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
 /* eslint-enable new-cap */
 
 
-},{"./visitor":65}],65:[function(require,module,exports){
+},{"./visitor":53}],53:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21510,7 +21013,7 @@ exports['default'] = Visitor;
 module.exports = exports['default'];
 
 
-},{"../exception":69}],66:[function(require,module,exports){
+},{"../exception":57}],54:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21733,7 +21236,7 @@ exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
 
 
-},{"./visitor":65}],67:[function(require,module,exports){
+},{"./visitor":53}],55:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21751,7 +21254,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":68}],68:[function(require,module,exports){
+},{"./decorators/inline":56}],56:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21782,7 +21285,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":82}],69:[function(require,module,exports){
+},{"../utils":70}],57:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21824,7 +21327,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],70:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21872,7 +21375,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":71,"./helpers/each":72,"./helpers/helper-missing":73,"./helpers/if":74,"./helpers/log":75,"./helpers/lookup":76,"./helpers/with":77}],71:[function(require,module,exports){
+},{"./helpers/block-helper-missing":59,"./helpers/each":60,"./helpers/helper-missing":61,"./helpers/if":62,"./helpers/log":63,"./helpers/lookup":64,"./helpers/with":65}],59:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -21913,7 +21416,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":82}],72:[function(require,module,exports){
+},{"../utils":70}],60:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22009,7 +21512,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":69,"../utils":82}],73:[function(require,module,exports){
+},{"../exception":57,"../utils":70}],61:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22036,7 +21539,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":69}],74:[function(require,module,exports){
+},{"../exception":57}],62:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22067,7 +21570,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":82}],75:[function(require,module,exports){
+},{"../utils":70}],63:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22095,7 +21598,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],76:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22109,7 +21612,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],77:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22144,7 +21647,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":82}],78:[function(require,module,exports){
+},{"../utils":70}],66:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22193,7 +21696,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":82}],79:[function(require,module,exports){
+},{"./utils":70}],67:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -22217,7 +21720,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],80:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22511,7 +22014,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":56,"./exception":69,"./utils":82}],81:[function(require,module,exports){
+},{"./base":44,"./exception":57,"./utils":70}],69:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -22528,7 +22031,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],82:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -22654,7 +22157,7 @@ function appendContextPath(contextPath, id) {
 }
 
 
-},{}],83:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -22681,7 +22184,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":54,"../dist/cjs/handlebars/compiler/printer":64,"fs":19}],84:[function(require,module,exports){
+},{"../dist/cjs/handlebars":42,"../dist/cjs/handlebars/compiler/printer":52,"fs":7}],72:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -22691,7 +22194,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":91,"./source-map/source-map-generator":92,"./source-map/source-node":93}],85:[function(require,module,exports){
+},{"./source-map/source-map-consumer":79,"./source-map/source-map-generator":80,"./source-map/source-node":81}],73:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -22800,7 +22303,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":94,"amdefine":95}],86:[function(require,module,exports){
+},{"./util":82,"amdefine":83}],74:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -22948,7 +22451,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":87,"amdefine":95}],87:[function(require,module,exports){
+},{"./base64":75,"amdefine":83}],75:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -23023,7 +22526,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":95}],88:[function(require,module,exports){
+},{"amdefine":83}],76:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -23142,7 +22645,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":95}],89:[function(require,module,exports){
+},{"amdefine":83}],77:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -23230,7 +22733,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":94,"amdefine":95}],90:[function(require,module,exports){
+},{"./util":82,"amdefine":83}],78:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -23352,7 +22855,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":95}],91:[function(require,module,exports){
+},{"amdefine":83}],79:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -24431,7 +23934,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":85,"./base64-vlq":86,"./binary-search":88,"./quick-sort":90,"./util":94,"amdefine":95}],92:[function(require,module,exports){
+},{"./array-set":73,"./base64-vlq":74,"./binary-search":76,"./quick-sort":78,"./util":82,"amdefine":83}],80:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -24832,7 +24335,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":85,"./base64-vlq":86,"./mapping-list":89,"./util":94,"amdefine":95}],93:[function(require,module,exports){
+},{"./array-set":73,"./base64-vlq":74,"./mapping-list":77,"./util":82,"amdefine":83}],81:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -25248,7 +24751,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":92,"./util":94,"amdefine":95}],94:[function(require,module,exports){
+},{"./source-map-generator":80,"./util":82,"amdefine":83}],82:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -25620,7 +25123,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":95}],95:[function(require,module,exports){
+},{"amdefine":83}],83:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -25925,7 +25428,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require('_process'),"/node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
-},{"_process":21,"path":20}],96:[function(require,module,exports){
+},{"_process":9,"path":8}],84:[function(require,module,exports){
 /*eslint-disable no-unused-vars*/
 /*!
  * jQuery JavaScript Library v3.1.0
@@ -36001,7 +35504,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],97:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -37551,4 +37054,4 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[15,16,17,13,1,2,3,4,5,6,7,8,9,10,11,12,14]);
+},{}]},{},[3,4,5,1]);
