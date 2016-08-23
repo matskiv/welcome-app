@@ -1,4 +1,4 @@
-# SAML Client
+# Welcome Client
 ---------
 Author: Erik Jan de Wit   
 Level: Intermediate   
