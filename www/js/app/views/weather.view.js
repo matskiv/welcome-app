@@ -55,6 +55,8 @@ App.View.WeatherSampleView = App.View.BaseView.extend({
   },
 
   gotWeatherData: function(data){
-    this.$el.find('.response_content').removeClass('alert-error').removeClass('alert').html(App.Templates['weather-data'](data));
+    var source = $("#weather-data").html();
+    var template = Handlebars.compile(source);
+    this.$el.find('.response_content').removeClass('alert-error').removeClass('alert').html(template(data));
   }
 });
