@@ -1,4 +1,4 @@
-# Welcome Client
+§# Welcome Client
 ---------
 Author: Erik Jan de Wit   
 Level: Intermediate   
@@ -30,6 +30,9 @@ If you wish to contribute to this template, the following information may be hel
  * cordova: 5.0+
 
 ## Build instructions
+
+***Note: If you're using an emulator you may need to set your Geolocation settings manually for the weather app to work as expected.*** 
+
  * npm install
  * Edit [fhconfig.json](www/fhconfig.json) to include the relevant information from RHMAP.  
  * Build and run locally
