@@ -1,4 +1,4 @@
-§# Welcome Client
+# Welcome Client
 ---------
 Author: Erik Jan de Wit   
 Level: Intermediate   
@@ -60,6 +60,6 @@ To update the JS SDK:
 
 * hit `cloud action` for a http call to welcome-clous app
 * hit `data browser` to save in MongoDB
-* hit `Location Example` to get soem geo-location example
+* hit `Location Example` to get some geo-location example
 
 
