@@ -11,8 +11,10 @@ App.View.BaseView = Backbone.View.extend({
     return this.$el;
   },
 
-  dataError: function(msg){
-    this.$el.find('.response_content').removeClass('alert-success').addClass('alert').addClass('alert-danger').html('Oops, something went wrong (' + msg+ '). Please try again later.');
+  dataError: function(errorMsg, instructionMsg){
+    var instruction = instructionMsg || 'Please try again later';
+
+    this.$el.find('.response_content').removeClass('alert-success').addClass('alert').addClass('alert-danger').html('Oops, something went wrong (' + errorMsg + '). ' + instruction + '.');
   },
 
   dataReset: function(){

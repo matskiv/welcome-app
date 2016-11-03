@@ -49,7 +49,7 @@ App.View.WeatherSampleView = App.View.BaseView.extend({
 
   gotLocationError: function(err) {
     this.updateLocation(this.defaultLocation);
-    this.dataError('Failed to get location : ' + err.message + ', a default location has been set.');
+    this.dataError('Failed to get location : ' + err.message, 'A default location has been set');
   },
 
   getWeatherData: function(){
