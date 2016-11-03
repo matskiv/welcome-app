@@ -23,7 +23,7 @@ App.View.CloudcallView = App.View.BaseView.extend({
         self.gotData(res);
       },
       function(code, errorprops, params){
-        self.dataError(code, params);
+        self.dataError(code);
     });
   },
 
