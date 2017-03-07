@@ -7815,34 +7815,9 @@ Lawnchair.adapter('indexed-db', (function(){
 
 })());
 Lawnchair.adapter('html5-filesystem', (function(global){
-
-  var FileError = global.FileError;
-
+  
   var fail = function( e ) {
-    var msg;
-    var show = true;
-    switch (e.code) {
-      case FileError.QUOTA_EXCEEDED_ERR:
-        msg = 'QUOTA_EXCEEDED_ERR';
-        break;
-      case FileError.NOT_FOUND_ERR:
-        msg = 'NOT_FOUND_ERR';
-        show = false;
-        break;
-      case FileError.SECURITY_ERR:
-        msg = 'SECURITY_ERR';
-        break;
-      case FileError.INVALID_MODIFICATION_ERR:
-        msg = 'INVALID_MODIFICATION_ERR';
-        break;
-      case FileError.INVALID_STATE_ERR:
-        msg = 'INVALID_STATE_ERR';
-        break;
-      default:
-        msg = 'Unknown Error';
-        break;
-    };
-    if ( console && show ) console.error( e, msg );
+    if ( console ) console.error(e, e.name);
   };
 
   var ls = function( reader, callback, entries ) {
@@ -8143,6 +8118,7 @@ Lawnchair.adapter('html5-filesystem', (function(global){
     }
   };
 }(this)));
+
 Lawnchair.adapter('memory', (function(){
 
     var data = {}
@@ -9801,31 +9777,6 @@ function isUndefined(arg) {
 }
 
 },{}],7:[function(_dereq_,module,exports){
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-},{}],8:[function(_dereq_,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -9890,7 +9841,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],9:[function(_dereq_,module,exports){
+},{}],8:[function(_dereq_,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -10401,7 +10352,7 @@ process.chdir = function (dir) {
 }(this));
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],10:[function(_dereq_,module,exports){
+},{}],9:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10487,7 +10438,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],11:[function(_dereq_,module,exports){
+},{}],10:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10574,13 +10525,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],12:[function(_dereq_,module,exports){
+},{}],11:[function(_dereq_,module,exports){
 'use strict';
 
 exports.decode = exports.parse = _dereq_('./decode');
 exports.encode = exports.stringify = _dereq_('./encode');
 
-},{"./decode":10,"./encode":11}],13:[function(_dereq_,module,exports){
+},{"./decode":9,"./encode":10}],12:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -11289,7 +11240,32 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":9,"querystring":12}],14:[function(_dereq_,module,exports){
+},{"punycode":8,"querystring":11}],13:[function(_dereq_,module,exports){
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+},{}],14:[function(_dereq_,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
@@ -11886,7 +11862,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,_dereq_("FWaASH"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":14,"FWaASH":8,"inherits":7}],16:[function(_dereq_,module,exports){
+},{"./support/isBuffer":14,"FWaASH":7,"inherits":13}],16:[function(_dereq_,module,exports){
 /*
  * loglevel - https://github.com/pimterry/loglevel
  *
@@ -13667,7 +13643,7 @@ XDomainRequestWrapper.prototype.getResponseHeader = function(n){
 
 module.exports = XDomainRequestWrapper;
 
-},{"url":13}],21:[function(_dereq_,module,exports){
+},{"url":12}],21:[function(_dereq_,module,exports){
 //a shameless copy from https://github.com/ForbesLindesay/ajax/blob/master/index.js.
 //it has the same methods and config options as jQuery/zeptojs but very light weight. see http://api.jquery.com/jQuery.ajax/
 //a few small changes are made for supporting IE 8 and other features:
@@ -13716,7 +13692,7 @@ var ajax = module.exports = function (options) {
 
   if (!settings.crossDomain) {
     settings.crossDomain = /^([\w-]+:)?\/\/([^\/]+)/.test(settings.url) && (RegExp.$1 != window.location.protocol || RegExp.$2 != window.location.host)
-  } 
+  }
 
   var dataType = settings.dataType,
     hasPlaceholder = /=\?/.test(settings.url)
@@ -13768,7 +13744,15 @@ var ajax = module.exports = function (options) {
           logger.debug("retry ajax call with jsonp")
           settings.type = "GET";
           settings.dataType = "jsonp";
-          settings.data = "_jsonpdata=" + settings.data;
+
+          if (settings.data) {
+            settings.data = "_jsonpdata=" + JSON.stringify(
+              _dereq_("./fhparams").addFHParams(JSON.parse(settings.data))
+            );
+          } else {
+            settings.data = "_jsonpdata=" + settings.data;
+          }
+
           return ajax(settings);
         }
       }
@@ -14069,7 +14053,7 @@ function extend(target) {
   return target
 }
 
-},{"./XDomainRequestWrapper":20,"./events":35,"./logger":42,"type-of":17}],22:[function(_dereq_,module,exports){
+},{"./XDomainRequestWrapper":20,"./events":35,"./fhparams":36,"./logger":42,"type-of":17}],22:[function(_dereq_,module,exports){
 var logger =_dereq_("./logger");
 var cloud = _dereq_("./waitForCloud");
 var fhparams = _dereq_("./fhparams");
@@ -14082,7 +14066,6 @@ function doActCall(opts, success, fail){
   var cloud_host = cloud.getCloudHost();
   var url = cloud_host.getActUrl(opts.act);
   var params = opts.req || {};
-  params = fhparams.addFHParams(params);
   var headers = fhparams.getFHHeaders();
   if (opts.headers) {
     headers = _.extend(headers, opts.headers);
@@ -14124,6 +14107,7 @@ module.exports = function(opts, success, fail){
     }
   });
 };
+
 },{"./ajax":21,"./appProps":29,"./fhparams":36,"./handleError":37,"./logger":42,"./waitForCloud":52,"underscore":18}],23:[function(_dereq_,module,exports){
 var logger = _dereq_("./logger");
 var cloud = _dereq_("./waitForCloud");
@@ -14265,7 +14249,6 @@ function doCloudCall(opts, success, fail){
   var cloud_host = cloud.getCloudHost();
   var url = cloud_host.getCloudUrl(opts.path);
   var params = opts.data || {};
-  params = fhparams.addFHParams(params);
   var type = opts.method || "POST";
   var data;
   if (["POST", "PUT", "PATCH", "DELETE"].indexOf(type.toUpperCase()) !== -1) {
@@ -14311,6 +14294,7 @@ module.exports = function(opts, success, fail){
     }
   });
 };
+
 },{"./ajax":21,"./appProps":29,"./fhparams":36,"./handleError":37,"./logger":42,"./waitForCloud":52,"underscore":18}],25:[function(_dereq_,module,exports){
 var hashImpl = _dereq_("./security/hash");
 
@@ -14483,7 +14467,7 @@ var load = function(cb) {
      app_props.host = url_params.url; 
     }
     
-    app_props.local = !!(url_props.host || url_params.url);
+    app_props.local = !!(url_props.host || url_params.url || (props.local && props.host));
     cb(null, app_props);
   }
 
@@ -14646,7 +14630,7 @@ module.exports = {
 },{"./data":33,"./fhparams":36,"./logger":42,"./queryMap":44}],31:[function(_dereq_,module,exports){
 module.exports = {
   "boxprefix": "/box/srv/1.1/",
-  "sdk_version": "2.17.0",
+  "sdk_version": "2.18.4",
   "config_js": "fhconfig.json",
   "INIT_EVENT": "fhinit",
   "INTERNAL_CONFIG_LOADED_EVENT": "internalfhconfigloaded",
@@ -16226,66 +16210,60 @@ var self = {
             if( pendingArray.length > 0 ) {
               self.consoleLog('Starting sync loop - global hash = ' + dataSet.hash + ' :: params = ' + JSON.stringify(syncLoopParams, null, 2));
             }
-            try {
-              self.doCloudCall({
-                'dataset_id': dataset_id,
-                'req': syncLoopParams
-              }, function(res) {
-                var rec;
+            self.doCloudCall({
+              'dataset_id': dataset_id,
+              'req': syncLoopParams
+            }, function(res) {
+              var rec;
 
-                function processUpdates(updates, notification, acknowledgements) {
-                  if( updates ) {
-                    for (var up in updates) {
-                      rec = updates[up];
-                      acknowledgements.push(rec);
-                      if( dataSet.pending[up] && dataSet.pending[up].inFlight) {
-                        delete dataSet.pending[up];
-                        self.doNotify(dataset_id, rec.uid, notification, rec);
-                      }
+              function processUpdates(updates, notification, acknowledgements) {
+                if( updates ) {
+                  for (var up in updates) {
+                    rec = updates[up];
+                    acknowledgements.push(rec);
+                    if( dataSet.pending[up] && dataSet.pending[up].inFlight) {
+                      delete dataSet.pending[up];
+                      self.doNotify(dataset_id, rec.uid, notification, rec);
                     }
                   }
                 }
+              }
 
-                // Check to see if any previously crashed inflight records can now be resolved
-                self.updateCrashedInFlightFromNewData(dataset_id, dataSet, res);
+              // Check to see if any previously crashed inflight records can now be resolved
+              self.updateCrashedInFlightFromNewData(dataset_id, dataSet, res);
 
-                //Check to see if any delayed pending records can now be set to ready
-                self.updateDelayedFromNewData(dataset_id, dataSet, res);
+              //Check to see if any delayed pending records can now be set to ready
+              self.updateDelayedFromNewData(dataset_id, dataSet, res);
 
-                //Check meta data as well to make sure it contains the correct info
-                self.updateMetaFromNewData(dataset_id, dataSet, res);
+              //Check meta data as well to make sure it contains the correct info
+              self.updateMetaFromNewData(dataset_id, dataSet, res);
 
 
-                if (res.updates) {
-                  var acknowledgements = [];
-                  self.checkUidChanges(dataSet, res.updates.applied);
-                  processUpdates(res.updates.applied, self.notifications.REMOTE_UPDATE_APPLIED, acknowledgements);
-                  processUpdates(res.updates.failed, self.notifications.REMOTE_UPDATE_FAILED, acknowledgements);
-                  processUpdates(res.updates.collisions, self.notifications.COLLISION_DETECTED, acknowledgements);
-                  dataSet.acknowledgements = acknowledgements;
-                }
+              if (res.updates) {
+                var acknowledgements = [];
+                self.checkUidChanges(dataSet, res.updates.applied);
+                processUpdates(res.updates.applied, self.notifications.REMOTE_UPDATE_APPLIED, acknowledgements);
+                processUpdates(res.updates.failed, self.notifications.REMOTE_UPDATE_FAILED, acknowledgements);
+                processUpdates(res.updates.collisions, self.notifications.COLLISION_DETECTED, acknowledgements);
+                dataSet.acknowledgements = acknowledgements;
+              }
 
-                if (res.hash && res.hash !== dataSet.hash) {
-                  self.consoleLog("Local dataset stale - syncing records :: local hash= " + dataSet.hash + " - remoteHash=" + res.hash);
-                  // Different hash value returned - Sync individual records
-                  self.syncRecords(dataset_id);
-                } else {
-                  self.consoleLog("Local dataset up to date");
-                  self.syncComplete(dataset_id,  "online", self.notifications.SYNC_COMPLETE);
-                }
-              }, function(msg, err) {
-                // The AJAX call failed to complete succesfully, so the state of the current pending updates is unknown
-                // Mark them as "crashed". The next time a syncLoop completets successfully, we will review the crashed
-                // records to see if we can determine their current state.
-                self.markInFlightAsCrashed(dataSet);
-                self.consoleLog("syncLoop failed : msg=" + msg + " :: err = " + err);
-                self.syncComplete(dataset_id, msg, self.notifications.SYNC_FAILED);
-              });
-            }
-            catch (e) {
-              self.consoleLog('Error performing sync - ' + e);
-              self.syncComplete(dataset_id, e, self.notifications.SYNC_FAILED);
-            }
+              if (res.hash && res.hash !== dataSet.hash) {
+                self.consoleLog("Local dataset stale - syncing records :: local hash= " + dataSet.hash + " - remoteHash=" + res.hash);
+                // Different hash value returned - Sync individual records
+                self.syncRecords(dataset_id);
+              } else {
+                self.consoleLog("Local dataset up to date");
+                self.syncComplete(dataset_id,  "online", self.notifications.SYNC_COMPLETE);
+              }
+            }, function(msg, err) {
+              // The AJAX call failed to complete succesfully, so the state of the current pending updates is unknown
+              // Mark them as "crashed". The next time a syncLoop completets successfully, we will review the crashed
+              // records to see if we can determine their current state.
+              self.markInFlightAsCrashed(dataSet);
+              self.consoleLog("syncLoop failed : msg=" + msg + " :: err = " + err);
+              self.syncComplete(dataset_id, msg, self.notifications.SYNC_FAILED);
+            });
           });
         }
       });
@@ -16523,30 +16501,47 @@ var self = {
   },
 
   doCloudCall: function(params, success, failure) {
-    var hasCustomSync = false;
-    var dataset = self.datasets[params.dataset_id];
-    if(dataset && dataset.config){
-      hasCustomSync = dataset.config.has_custom_sync;
+    var callbackCalled = false;
+    try {
+      var hasCustomSync = false;
+      var dataset = self.datasets[params.dataset_id];
+      if(dataset && dataset.config){
+        hasCustomSync = dataset.config.has_custom_sync;
+      }
+      if( hasCustomSync === true ) {
+        actAPI({
+          'act' : params.dataset_id,
+          'req' : params.req
+        }, function(res) {
+          callbackCalled = true;
+          success(res);
+        }, function(msg, err) {
+          callbackCalled = true;
+          failure(msg, err);
+        });      
+      } else {
+        cloudAPI({
+          'path' : '/mbaas/sync/' + params.dataset_id,
+          'method' : 'post',
+          'data' : params.req
+        }, function(res) {
+          callbackCalled = true;
+          success(res);
+        }, function(msg, err) {
+          callbackCalled = true;
+          failure(msg, err);
+        });
+      }
     }
-    if( hasCustomSync === true ) {
-      actAPI({
-        'act' : params.dataset_id,
-        'req' : params.req
-      }, function(res) {
-        success(res);
-      }, function(msg, err) {
-        failure(msg, err);
-      });      
-    } else {
-      cloudAPI({
-        'path' : '/mbaas/sync/' + params.dataset_id,
-        'method' : 'post',
-        'data' : params.req
-      }, function(res) {
-        success(res);
-      }, function(msg, err) {
-        failure(msg, err);
-      });
+    catch (e) {
+      var msg = 'Exception in doCloudCall - ' + e;
+      self.consoleLog(msg);
+      // only call the failure callback if success/failure hasn't been called already
+      // This will prevent exceptions thrown in the success/failure callback resulting in that fn being called again
+      // i.e. only let the caller known about exceptions up to the point of the ajax call being made.
+      if (!callbackCalled) {
+        failure(msg, e);
+      }
     }
   },
 
@@ -16885,6 +16880,7 @@ module.exports = {
   manage: self.manage,
   notify: self.notify,
   doList: self.list,
+  getUID: self.getUID,
   doCreate: self.create,
   doRead: self.read,
   doUpdate: self.update,
@@ -16907,7 +16903,8 @@ module.exports = {
   generateHash: self.generateHash,
   loadDataSet: self.loadDataSet,
   checkHasCustomSync: self.checkHasCustomSync,
-  clearCache: self.clearCache
+  clearCache: self.clearCache,
+  doCloudCall: self.doCloudCall
 };
 
 },{"../../libs/generated/crypto":1,"../../libs/generated/lawnchair":2,"./api_act":22,"./api_cloud":24}],51:[function(_dereq_,module,exports){
@@ -19124,11 +19121,11 @@ JavaScriptCompiler.prototype = {
       child = children[i];
       compiler = new this.compiler(); // eslint-disable-line new-cap
 
-      var index = this.matchExistingProgram(child);
+      var existing = this.matchExistingProgram(child);
 
-      if (index == null) {
+      if (existing == null) {
         this.context.programs.push(''); // Placeholder to prevent name conflicts for nested children
-        index = this.context.programs.length;
+        var index = this.context.programs.length;
         child.index = index;
         child.name = 'program' + index;
         this.context.programs[index] = compiler.compile(child, options, this.context, !this.precompile);
@@ -19137,12 +19134,14 @@ JavaScriptCompiler.prototype = {
 
         this.useDepths = this.useDepths || compiler.useDepths;
         this.useBlockParams = this.useBlockParams || compiler.useBlockParams;
+        child.useDepths = this.useDepths;
+        child.useBlockParams = this.useBlockParams;
       } else {
-        child.index = index;
-        child.name = 'program' + index;
+        child.index = existing.index;
+        child.name = 'program' + existing.index;
 
-        this.useDepths = this.useDepths || child.useDepths;
-        this.useBlockParams = this.useBlockParams || child.useBlockParams;
+        this.useDepths = this.useDepths || existing.useDepths;
+        this.useBlockParams = this.useBlockParams || existing.useBlockParams;
       }
     }
   },
@@ -19150,7 +19149,7 @@ JavaScriptCompiler.prototype = {
     for (var i = 0, len = this.context.environments.length; i < len; i++) {
       var environment = this.context.environments[i];
       if (environment && environment.equals(child)) {
-        return i;
+        return environment;
       }
     }
   },
@@ -20837,9 +20836,20 @@ function Exception(message, node) {
     Error.captureStackTrace(this, Exception);
   }
 
-  if (loc) {
-    this.lineNumber = line;
-    this.column = column;
+  try {
+    if (loc) {
+      this.lineNumber = line;
+
+      // Work around issue under safari where we can't directly set the column value
+      /* istanbul ignore next */
+      if (Object.defineProperty) {
+        Object.defineProperty(this, 'column', { value: column });
+      } else {
+        this.column = column;
+      }
+    }
+  } catch (nop) {
+    /* Ignore if the browser is very particular */
   }
 }
 
@@ -21408,7 +21418,7 @@ function template(templateSpec, env) {
         blockParams = templateSpec.useBlockParams ? [] : undefined;
     if (templateSpec.useDepths) {
       if (options.depths) {
-        depths = context !== options.depths[0] ? [context].concat(options.depths) : options.depths;
+        depths = context != options.depths[0] ? [context].concat(options.depths) : options.depths;
       } else {
         depths = [context];
       }
@@ -21457,7 +21467,7 @@ function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, d
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
     var currentDepths = depths;
-    if (depths && context !== depths[0]) {
+    if (depths && context != depths[0]) {
       currentDepths = [context].concat(depths);
     }
 
@@ -21475,7 +21485,12 @@ function wrapProgram(container, i, fn, data, declaredBlockParams, blockParams, d
 function resolvePartial(partial, context, options) {
   if (!partial) {
     if (options.name === '@partial-block') {
-      partial = options.data['partial-block'];
+      var data = options.data;
+      while (data['partial-block'] === noop) {
+        data = data._parent;
+      }
+      partial = data['partial-block'];
+      data['partial-block'] = noop;
     } else {
       partial = options.partials[options.name];
     }

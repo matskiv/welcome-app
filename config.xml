@@ -9,6 +9,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <access origin="http://cdn.worldweatheronline.net" />
     <engine name="android"/>
     <engine name="ios"/>
     <allow-intent href="http://*/*" />
