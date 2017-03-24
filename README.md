@@ -42,9 +42,9 @@ cordova serve
 Go to [http://localhost:8000/](http://localhost:8000/)
 
 ### npm dependencies
-The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/js/main.js).
+The `fh-js-sdk` and other development dependencies are defined in [package.json](package.json) and included in a [browserified script](www/main.js).
 
-* This generated [main.js](www/js/main.js) file is checked-in to allow RHMAP studio preview to statically serve dependencies.
+* This generated [main.js](www/main.js) file is checked-in to allow RHMAP studio preview to statically serve dependencies.
 
 * The [init.js](www/js/app/init.js) file is browserified and acts as a bridge between template script and npm dependencies. 
 
