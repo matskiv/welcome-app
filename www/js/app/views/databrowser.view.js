@@ -20,15 +20,15 @@ App.View.DatabrowserView = App.View.BaseView.extend({
     if(!username || username === null || username === ''){
       this.showError();
     } else {
-      this.hideError();
       $fh.cloud({path:'saveData', data: {collection: 'Users', 'document': {username: username}}}, function(res){
         if(res && res.status === 'ok'){
+          this.hideError();
           self.dataSaved();
         } else {
           self.dataError('Server error');
         }
-      }, function(err){
-        self.dataError(err);
+      }, function(msg, error){
+        self.dataError(msg);
       });
     }
   },

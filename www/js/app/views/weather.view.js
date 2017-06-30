@@ -67,7 +67,7 @@ App.View.WeatherSampleView = App.View.BaseView.extend({
       }
     }, function(res){
       self.gotWeatherData(res);
-    }, function(msg){
+    }, function(msg, error){
       self.dataError(msg);
     });
   },
